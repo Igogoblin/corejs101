@@ -232,10 +232,51 @@ function extractEmails(str) {
  *             '┌──────────┐\n'+
  *  (12,3) =>  '│          │\n'+
  *             '└──────────┘\n'
- * let a = ["┌", "┐", "└", "┘", "─", "│"];
+ * let a = ["┌", "┐", "└", "┘", "─", "│", ' ', '\n'];
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const a = ['┌', '┐', '└', '┘', '─', '│', ' ', '\n'];
+  let result = '';
+  // eslint-disable-next-line no-plusplus
+  for (let i = 1; i <= width * height; i++) {
+    if (i === 1) {
+      result += a[0];
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    if (i === width) {
+      result += a[1] + a[7];
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    if (i === width * height - width + 1) {
+      result += a[2];
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    if (i === width * height) {
+      result += a[3] + a[7];
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    if (i < width || i > width * height - width) {
+      result += a[4];
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    if (i % width === 0) {
+      result += a[5] + a[7];
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    if ((i - 1) % width === 0) {
+      result += a[5];
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    result += a[6];
+  }
+  return result;
 }
 
 
@@ -255,8 +296,20 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const aa = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  let result = '';
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < str.length; i++) {
+    if (a.indexOf(str[i]) < 0) {
+      result += str[i];
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    result += aa[a.indexOf(str[i])];
+  }
+  return result;
 }
 
 /**
@@ -272,8 +325,11 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  if (typeof value === 'string' || value instanceof String) {
+    return true;
+  }
+  return false;
 }
 
 
