@@ -600,6 +600,7 @@ function getIntervalArray(start, end) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
+
 function distinct(arr) {
   const set = new Set();
   // eslint-disable-next-line array-callback-return
@@ -697,8 +698,12 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  return arr.length % 2 === 0
+    ? arr.slice(arr.length / 2).concat(arr.slice(0, arr.length / 2))
+    : arr.slice(arr.length / 2 + 1).concat(arr.slice(arr.length / 2, arr.length / 2 + 1))
+    // eslint-disable-next-line indent
+    .concat(arr.slice(0, arr.length / 2));
 }
 
 

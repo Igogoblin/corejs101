@@ -51,6 +51,7 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
+
 function getAverage(value1, value2) {
   return (value1 / 2 + value2 / 2);
 }
@@ -69,6 +70,15 @@ function getAverage(value1, value2) {
  *   (0,0) (0,1)    => 1
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
+ */
+
+/**
+ * Description
+ * @param {any} x1
+ * @param {any} y1
+ * @param {any} x2
+ * @param {any} y2
+ * @returns {any}
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
   // eslint-disable-next-line no-restricted-properties
