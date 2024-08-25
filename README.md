@@ -1,4 +1,4 @@
-# Core JS 101
+# Core JS 101 old version
 
 :warning: **Please note that you mustn't open PRs that contains the answers to this repo!**
 
